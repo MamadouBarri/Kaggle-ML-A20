@@ -1,38 +1,26 @@
+from Src import data_extraction
+import matplotlib.pyplot as plt
+from Src import neural_network
 
-# This Python 3 environment comes with many helpful analytics libraries installed
-# It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python
-# For example, here's several helpful packages to load
+ITERATION = 1000
+LEARNING_RATE = 0.05
 
-import preprocessing
-import numpy as np # linear algebra
-import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
-import matplotlib as plt
+def main():
 
-# You can write up to 5GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using "Save & Run All" 
-# You can also write temporary files to /kaggle/temp/, but they won't be saved outside of the current session
+    # Paths
+    train_path = "polyai-ml-a20/data_train.npz"
+    test_path = "polyai-ml-a20/data_test.npz"
 
-# Load files
-data_train_file = np.load("polyai-ml-a20/data_train.npz")
-data_test_file = np.load("polyai-ml-a20/data_test.npz")
+    (data, labels) = data_extraction.extract_images(train_path)
+    mlp = neural_network.build_mlp()
+    
+    for i in range(ITERATION):
 
-print(data_train_file.files)
-print(data_test_file.files)
+        # Train
+        
 
-images_train = data_train_file['data']
-labels_train = data_train_file['labels']
-labels_metadata = data_train_file['metadata'].astype(str)
-image0 = images_train[65]
-label0 = labels_train[65]
-
-plt.imshow(image0)
-plt.show()
-preprocessing.interpolatePixels(image0)
-plt.imshow(image0)
-plt.show()
-
-
-
-
+if __name__ == "__main__":
+    main()
 
 
 
