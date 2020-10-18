@@ -54,7 +54,7 @@ vehicles 2
 
 ### Built With
 
-These are the main technologies used to build and deploy this project:
+These are the main technologies used to build this project:
 * [Python 3.8.5](https://www.python.org/)
 * [Numpy](https://numpy.org/)
 * [Scikit-Learn](https://scikit-learn.org/stable/)
