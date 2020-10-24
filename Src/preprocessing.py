@@ -1,35 +1,24 @@
-import numpy as np  # linear algebra
-
+import numpy as np
 
 IMAGE_SIZE = 32
 
 # Returns the rgb values of a pixel in an image
-
-
 def getRGB(image, position):
     return image[position[0], position[1]]
 
 # Checks whether the current position is in the image
-
-
 def isPixelPositionValid(width, height, position):
     return not(position[0] < 0 or position[0] >= width or position[1] < 0 or position[1] >= height)
 
 # Checks whether the value of r, g and b is [x] in an array
-
-
 def areAllChannels(arr, x):
     return arr[0] == x and arr[1] == x and arr[2] == x
 
 # Checks whether the current position is in the image and that the pixel is not black
-
-
 def isPixelValid(image, width, height, position):
     return isPixelPositionValid(width, height, position) and not(areAllChannels(getRGB(image, position), 0))
 
 # Returns the neighbouring pixels of a pixel in a image
-
-
 def getNeighbourPixels(image, position):
 
     pixels = []
@@ -55,7 +44,7 @@ def getNeighbourPixels(image, position):
 def interpolatePixel(image, position):
 
     neighbours = getNeighbourPixels(image, position)
-
+    
     mean_values = np.zeros((len(neighbours), 3))
     if len(mean_values) > 0:
         for n in range(len(neighbours)):

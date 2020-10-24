@@ -1,3 +1,4 @@
+import numpy as np
 
 classes = [ 'aquatic mammals', 'fish', 'flowers',
             'food containers', 'fruit and vegetables', 'household electrical devices',
